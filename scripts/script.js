@@ -20,7 +20,8 @@ $(document).ready(function() {
 
   	$("#searchForm").submit(function(e) {
   		// Fix sql injection threat;
-  		var url = "https://api.sqoot.com/v2/deals?api_key=6vc2ns&query=" + $('#searchItem').val() + "&location=" + capitaliseFirstLetter($('#searchCity').val().toLowerCase());
+  		var city = capitaliseFirstLetter($('#searchCity').val().toLowerCase());
+  		var url = "https://api.sqoot.com/v2/deals?api_key=6vc2ns&query=" + $('#searchItem').val() + "&location=" + city;
   		console.log(url);
 
   		$.ajax({
@@ -33,7 +34,7 @@ $(document).ready(function() {
   				$("#information").slideUp("fast");
   				$("#no-results").slideUp("fast");
 
-  				if (data.deals.length == 0) {
+  				if (data.deals.length == 0 || (city && !data.query.location.locality)) {
   					$("#no-results").slideDown("fast");
   					$(".hide").slideUp("fast");
   					return;
@@ -103,6 +104,7 @@ $(document).ready(function() {
             								 </div>");
 
             		var link = document.getElementById(deal.deal.url);
+
             		link.addEventListener('click', function() {
               			newTab(deal.deal.url);
             		});
