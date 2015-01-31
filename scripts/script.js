@@ -6,9 +6,24 @@ $(document).ready(function() {
       $("#searchForm").submit(); 
 	});
 
+	$('#searchItem').keydown(function(event) {
+        if (event.keyCode == 13) {
+            $("#searchForm").submit(); 
+            return false;
+         }
+    });
+
+    $('#searchCity').keydown(function(event) {
+        if (event.keyCode == 13) {
+            $("#searchForm").submit(); 
+            return false;
+         }
+    });
+
   	$("#searchForm").submit(function(e) {
   		// Fix sql injection threat;
-  		var url = "https://api.sqoot.com/v2/deals?api_key=6vc2ns&query=" + $('#searchItem').val() + "&location=" + capitaliseFirstLetter($('#searchCity').val().toLowerCase());
+  		var city = capitaliseFirstLetter($('#searchCity').val().toLowerCase());
+  		var url = "https://api.sqoot.com/v2/deals?api_key=6vc2ns&query=" + $('#searchItem').val() + "&location=" + city;
   		console.log(url);
 
   		$.ajax({
@@ -16,27 +31,23 @@ $(document).ready(function() {
   			url : url,
   			dataType : "jsonp",
   			success : function(data) {
-          $("#information").empty();
+  				$("#information").empty();
+  				$("#information").slideUp("fast");
   				$("#no-results").slideUp("fast");
 
-  				if (data.deals.length == 0) {
+  				if (data.deals.length == 0 || (city && !data.query.location.locality)) {
   					$("#no-results").slideDown("fast");
-  					$("#information").slideUp("fast");
+  					$(".hide").slideUp("fast");
   					return;
   				}
-  				$("#information").slideDown("fast");
+
+  				$(".hide").slideDown("fast");
           		var deals = data.deals;
               var info = data.query;
-              $("#total-results").append(info.total);
-              $("#total-results").slideDown("fast"); 
+              $("#search-results").append(": "+info.total);
+              //$("#total-results").slideDown("fast"); 
 
           		deals.forEach(function (deal) {
-
-        			var finePrint;
-
-        			if (deal.deal.fine_print != null) {
-        				finePrint = deal.deal.fine_print.replace("/•/g", ". ");
-        			}
             		console.log(deal);
 
             		$("#information").append("<div class='title'> \
@@ -66,15 +77,16 @@ $(document).ready(function() {
 												 						<td class='collapsing'>Address</td> \
 												 						<td> \
 												 							<addr>" + 
+												 								(deal.deal.merchant.address == null ? "None Provided" : 
 												 								deal.deal.merchant.address + "<br>" + 
 												 								deal.deal.merchant.locality + " " + deal.deal.merchant.region + ", " + deal.deal.merchant.country_code + "<br>" +
-												 								deal.deal.merchant.postal_code + " \
+												 								deal.deal.merchant.postal_code) + " \
 												 							</addr> \
 												 						</td> \
 												 					</tr> \
 												 					<tr> \
 												 						<td class='collapsing'>Phone</td> \
-												 						<td>" + deal.deal.merchant.phone_number + "</td>\
+												 						<td>" + (deal.deal.merchant.phone_number == null ? "None Provided" : deal.deal.merchant.phone_number) + "</td> \
 												 					</tr> \
 												 				</tbody> \
 												 			</table> \
@@ -96,6 +108,7 @@ $(document).ready(function() {
             								 </div>");
 
             		var link = document.getElementById(deal.deal.url);
+
             		link.addEventListener('click', function() {
               			newTab(deal.deal.url);
             		});

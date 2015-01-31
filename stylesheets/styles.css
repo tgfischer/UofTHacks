@@ -7,7 +7,6 @@ input {
 }
 
 #information {
-	display: none;
 	margin: 15px 0;
 }
 
@@ -16,6 +15,10 @@ div.ui.checkbox {
 	display: block;
 }
 
-#no-results {
+.hide, #no-results {
 	display: none;
+}
+
+h4.hide {
+	margin-top: 5px !important;
 }
