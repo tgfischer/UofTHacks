@@ -29,9 +29,12 @@ $(document).ready(function() {
   			url : url,
   			dataType : "jsonp",
   			success : function(data) {
+          $("#information").empty();
   				$("#information").slideDown("fast");
-          var result = JSON.parse(data);
-          console.log(result);
+          var deals = data.deals;
+          deals.forEach(function (deal) {
+            $("#information").append("<div class='active title'><i class='dropdown icon'></i>"+deal.deal.short_title+"</div>");
+          });
   			}
   		});
 
