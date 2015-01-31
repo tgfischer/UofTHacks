@@ -1,4 +1,6 @@
 $(document).ready(function() {
+  $("#total-results").hide();
+
 
 	$("#searchButton").click(function() {
       $("#searchForm").submit(); 
@@ -15,7 +17,6 @@ $(document).ready(function() {
   			dataType : "jsonp",
   			success : function(data) {
           $("#information").empty();
-  				$("#information").empty();
   				$("#no-results").slideUp("fast");
 
   				if (data.deals.length == 0) {
@@ -25,6 +26,9 @@ $(document).ready(function() {
   				}
   				$("#information").slideDown("fast");
           		var deals = data.deals;
+              var info = data.query;
+              $("#total-results").append(info.total);
+              $("#total-results").slideDown("fast"); 
 
           		deals.forEach(function (deal) {
 
