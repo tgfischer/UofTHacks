@@ -24,7 +24,7 @@ $(document).ready(function() {
 
   	$("#searchForm").submit(function(e) {
   		// Fix sql injection threat;
-  		var url = "https://api.sqoot.com/v2/deals?api_key=6vc2ns&query=" + $('#searchInput').val();
+  		var url = "https://api.sqoot.com/v2/deals?api_key=6vc2ns&query=" + $('#searchItem').val() + "&location=" + capitaliseFirstLetter($('#searchCity').val().toLowerCase());
   		console.log(url);
 
   		$.ajax({
@@ -36,21 +36,8 @@ $(document).ready(function() {
   				$("#information").slideDown("fast");
           		var deals = data.deals;
 
-          		//notification();
-
           		deals.forEach(function (deal) {
-            		console.log(deal); //helps to see what results the query brings back
-
-            		if($("#location").is(':checked')) {
-              			console.log("check location");
-              			//return results based on location
-        			}
-
-        			var finePrint;
-
-        			if (deal.deal.fine_print != null) {
-        				finePrint = deal.deal.fine_print.replace("/•/g", ". ");
-        			}
+            		console.log(deal);
 
             		$("#information").append("<div class='title'> \
             								  	<i class='dropdown icon'></i>" + 
@@ -95,7 +82,7 @@ $(document).ready(function() {
             										</div>" + (deal.deal.fine_print == null ? "" :
             										"<div class='row'> \
             											<div class='column'> \
-            												<i>" + finePrint + "</i> \
+            												<i>" + deal.deal.fine_print + "</i> \
             											</div> \
             										</div>") +
             										"<div class='row'> \
@@ -125,35 +112,11 @@ $(document).ready(function() {
   		$('html').css({ height : "auto" });
   	});
 
-  	function notification() {
-		// Let's check if the browser supports notifications
-  		if (!("Notification" in window)) {
-    		alert("This browser does not support desktop notification");
-  		}
-
-  		// Let's check if the user is okay to get some notification
-  		else if (Notification.permission === "granted") {
-    		// If it's okay let's create a notification
-   		 	var notification = new Notification("Hi there!");
-  		}
-
-  		// Otherwise, we need to ask the user for permission
-  		// Note, Chrome does not implement the permission static property
-  		// So we have to check for NOT 'denied' instead of 'default'
-  		else if (Notification.permission !== 'denied') {
-    		Notification.requestPermission(function (permission) {
-	      		// If the user is okay, let's create a notification
-	      		if (permission === "granted") {
-	        		var notification = new Notification("Hi there!");
-	      		}
-	    	});
-	  	}
-
-  		// At last, if the user already denied any notification, and you 
-  		// want to be respectful there is no need to bother them any more.
-  	}
-
   	function newTab(url) {
     	chrome.tabs.create({ url: url });
   	}
+
+  	function capitaliseFirstLetter(string) {
+    	return string.charAt(0).toUpperCase() + string.slice(1);
+	}
 });
