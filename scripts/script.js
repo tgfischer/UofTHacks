@@ -58,7 +58,21 @@ $(document).ready(function() {
         $("#page-number").empty();
         $("#page-number").append(currentPage + " / " + totalPages);
         $("#search-results").empty();
-        $("#search-results").append("Total Results - "+info.total); 
+        $("#search-results").append("Total Results - "+info.total);
+
+        if (currentPage == totalPages) {
+          $("#next-page").addClass("disabled");
+        } 
+        else {
+          $("#next-page").removeClass("disabled");
+        }
+
+        if (currentPage == 1) {
+          $("#prev-page").addClass("disabled");
+        }
+        else {
+          $("#prev-page").removeClass("disabled");
+        } 
 
         deals.forEach(function (deal) {
           //console.log(deal);
@@ -144,7 +158,6 @@ $(document).ready(function() {
     var url = "https://api.sqoot.com/v2/deals?api_key=6vc2ns&query=" + $('#searchItem').val() + "&location=" + city + "&page=" + currentPage;
 
     pageLoad(url, city, currentPage);
-  
   }
 
   function goBack() {   
