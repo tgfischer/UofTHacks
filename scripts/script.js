@@ -37,4 +37,8 @@ $(document).ready(function() {
   	});
 
   	$('.ui.accordion').accordion();
+
+  	$('.title').click(function() {
+  		$('html').css({ height : "auto" });
+  	});
 });
