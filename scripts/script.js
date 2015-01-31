@@ -45,8 +45,8 @@ $(document).ready(function() {
       		var deals = data.deals;
           var info = data.query;
 
-          var pages = Number(info.total)/10;
-          console.log(Math.ceil(pages));
+          var pages = Math.ceil(Number(info.total)/10);
+          console.log(pages);
           $("#search-results").empty();
           $("#search-results").append("Total Results - "+info.total); 
 
