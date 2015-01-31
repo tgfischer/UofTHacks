@@ -22,3 +22,8 @@ div.ui.checkbox {
 h4.hide {
 	margin-top: 5px !important;
 }
+
+div.ui.pagination.menu {
+	margin-bottom: 15px;
+	float: right;
+}

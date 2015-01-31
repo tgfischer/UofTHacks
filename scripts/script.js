@@ -1,6 +1,6 @@
 $(document).ready(function() {
-  $("#total-results").hide();
-
+  	$("#total-results").hide();
+  	$(".hide").hide();
 
 	$("#searchButton").click(function() {
       $("#searchForm").submit(); 
