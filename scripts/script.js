@@ -56,12 +56,5 @@ $(document).ready(function() {
   }
 
   $('.ui.accordion').accordion();
-});
 
-// document.addEventListener('DOMContentLoaded', function() {
-//     var link = document.getElementById('link');
-//     // onClick's logic below:
-//     link.addEventListener('click', function() {
-//         console.log("here");
-//     });
-// });
+});
