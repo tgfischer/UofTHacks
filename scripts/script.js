@@ -21,7 +21,7 @@ $(document).ready(function() {
 
   	$("#searchForm").submit(function(e) {
   		// Fix sql injection threat
-  		var url = "https://en.wikipedia.org/w/api.php?format=json&action=query&titles=" + $("#searchInput").val() + "&prop=revisions&rvprop=content&callback=?";
+  		var url = "https://api.sqoot.com/v2/deals?api_key=6vc2ns&query="+$('#searchInput').val();
   		console.log(url);
 
   		$.ajax({
@@ -30,6 +30,8 @@ $(document).ready(function() {
   			dataType : "jsonp",
   			success : function(data) {
   				$("#information").slideDown("fast");
+          var result = JSON.parse(data);
+          console.log(result);
   			}
   		});
 
