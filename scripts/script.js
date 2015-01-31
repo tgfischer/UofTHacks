@@ -20,6 +20,7 @@ $(document).ready(function() {
 
   				if (data.deals.length == 0) {
   					$("#no-results").slideDown("fast");
+  					$("#information").slideUp("fast");
   					return;
   				}
   				$("#information").slideDown("fast");
@@ -95,6 +96,8 @@ $(document).ready(function() {
               			newTab(deal.deal.url);
             		});
           		});
+
+				$('html').css({ height : "auto" });
   			}
       	});
     	
