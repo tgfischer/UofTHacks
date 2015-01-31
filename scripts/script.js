@@ -1,30 +1,12 @@
 $(document).ready(function() {
-	/*var validationRules = {
-    	value: {
-      		identifier  : 'value',
-      		value: [
-      			{
-        			type   : 'empty',
-        			prompt : 'Please enter something!'
-      			}
-      		]
-    	}
-	};
-
-	$("#searchForm").form(validationRules, { 
-    	on: 'submit' 
-  	});*/
-    //$('.checkbox').checkbox('attach events', '.check.button', 'check');
-    //$('.checkbox').checkbox('attach events', '.uncheck.button', 'uncheck');
-    $(".ui.checkbox").checkbox();
 
 	$("#searchButton").click(function() {
-		$("#searchForm").submit();
+      $("#searchForm").submit(); 
 	});
 
   	$("#searchForm").submit(function(e) {
   		// Fix sql injection threat;
-  		var url = "https://api.sqoot.com/v2/deals?api_key=6vc2ns&query=" + $('#searchInput').val();
+  		var url = "https://api.sqoot.com/v2/deals?api_key=6vc2ns&query=" + $('#searchInput').val()+ "&location=Toronto";
   		console.log(url);
 
   		$.ajax({
@@ -32,14 +14,14 @@ $(document).ready(function() {
   			url : url,
   			dataType : "jsonp",
   			success : function(data) {
-          		$("#information").empty();
+          $("#information").empty();
   				$("#information").slideDown("fast");
           		var deals = data.deals;
 
           		//notification();
 
           		deals.forEach(function (deal) {
-            		console.log(deal); //helps to see what results the query brings back
+            		//console.log(deal); //helps to see what results the query brings back
 
             		if($("#location").is(':checked')) {
               			console.log("check location");
