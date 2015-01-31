@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Wikipedia</title>
+    <title>DealFinder</title>
     <link rel="stylesheet" type="text/css" href="/dist/semantic.min.css">
     <link rel="stylesheet" type="text/css" href="/stylesheets/styles.css">
   </head>
@@ -9,7 +9,7 @@
   <body>
     <div class="form-container">
       <form class="ui form" id="searchForm" action="/" method="GET" enctype="text/plain">
-        <h4 class="ui dividing header">Search Wikipedia</h4>
+        <h4 class="ui dividing header">Search For Deals</h4>
 
         <div class="ui action input">
           <input id="searchInput" type="text" placeholder="Search..." name="value">
@@ -18,9 +18,19 @@
             Search
           </div>
         </div>
+
+        <div class="ui toggle checkbox">
+          <input type="checkbox" name="public" id="location">
+          <label>Find nearby locations</label>
+        </div>
+
+        <div class="ui toggle checkbox">
+          <input type="checkbox" name="public" id="something">
+          <label>Do something else</label>
+        </div>
       </form>
-      <div class="ui styled fluid accordion" id="information">
-        <div class="active title">
+      <div class="ui styled fluid accordion collapse" id="information">
+        <!--<div class="active title">
           <i class="dropdown icon"></i>
           What is a dog?
         </div>
@@ -44,6 +54,7 @@
           <p>Three common ways for a prospective owner to acquire a dog is from pet shops, private owners, or shelters.</p>
           <p>A pet shop may be the most convenient way to buy a dog. Buying a dog from a private owner allows you to assess the pedigree and upbringing of your dog before choosing to take it home. Lastly, finding your dog from a shelter, helps give a good home to a dog who may not find one so readily.</p>
         </div>
+        -->
       </div>
     </div>
 
