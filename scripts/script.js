@@ -32,7 +32,14 @@ $(document).ready(function() {
   			url : url,
   			dataType : "jsonp",
   			success : function(data) {
-          		$("#information").empty();
+  				$("#information").empty();
+  				$("#no-results").slideUp("fast");
+
+  				if (data.deals.length == 0) {
+  					$("#no-results").slideDown("fast");
+  					return;
+  				}
+
   				$("#information").slideDown("fast");
           		var deals = data.deals;
 
