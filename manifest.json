@@ -9,4 +9,3 @@
   },
   "content_security_policy": "script-src 'self' https://api.sqoot.com; object-src 'self'"
 }
-

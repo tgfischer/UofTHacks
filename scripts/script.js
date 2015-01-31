@@ -18,6 +18,7 @@ $(document).ready(function() {
 	$("#searchButton").click(function() {
 		$("#searchForm").submit();
 	});
+  var link;
 
   	$("#searchForm").submit(function(e) {
   		// Fix sql injection threat
@@ -33,13 +34,34 @@ $(document).ready(function() {
   				$("#information").slideDown("fast");
           var deals = data.deals;
           deals.forEach(function (deal) {
-            $("#information").append("<div class='active title'><i class='dropdown icon'></i>"+deal.deal.short_title+"</div>");
-          });
-  			}
-  		});
+            //console.log(deal);
+            $("#information").append("<div class='active title'><i class='dropdown icon'></i>"+deal.deal.title+"</div><div class='active content'><div id='"+deal.deal.url+"' class='ui teal basic button'>"+deal.deal.provider_name+"</div></div>");
 
+            link = document.getElementById(deal.deal.url);
+            link.addEventListener('click', function() {
+              newTab(deal.deal.url);
+            });
+          
+          });
+  		  }
+
+      });
     	return false;
   	});
+  
 
-  	$('.ui.accordion').accordion();
+  function newTab(url) {
+    //console.log(url);
+    chrome.tabs.create({ url: url });
+  }
+
+  $('.ui.accordion').accordion();
 });
+
+// document.addEventListener('DOMContentLoaded', function() {
+//     var link = document.getElementById('link');
+//     // onClick's logic below:
+//     link.addEventListener('click', function() {
+//         console.log("here");
+//     });
+// });
