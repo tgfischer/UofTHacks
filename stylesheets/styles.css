@@ -10,3 +10,8 @@ input {
 	display: none;
 	margin: 15px 0;
 }
+
+div.ui.checkbox {
+	margin-top: 10px;
+	display: block;
+}

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Wikipedia</title>
+    <title>DealFinder</title>
     <link rel="stylesheet" type="text/css" href="/dist/semantic.min.css">
     <link rel="stylesheet" type="text/css" href="/stylesheets/styles.css">
   </head>
@@ -18,8 +18,18 @@
             Search
           </div>
         </div>
+
+        <div class="ui toggle checkbox">
+          <input type="checkbox" name="public" id="location">
+          <label>Find nearby locations</label>
+        </div>
+
+        <div class="ui toggle checkbox">
+          <input type="checkbox" name="public" id="something">
+          <label>Do something else</label>
+        </div>
       </form>
-      <div class="ui styled fluid accordion" id="information">
+      <div class="ui styled fluid accordion collapse" id="information">
         <!--<div class="active title">
           <i class="dropdown icon"></i>
           What is a dog?
