@@ -1,25 +1,7 @@
 $(document).ready(function() {
-	/*var validationRules = {
-    	value: {
-      		identifier  : 'value',
-      		value: [
-      			{
-        			type   : 'empty',
-        			prompt : 'Please enter something!'
-      			}
-      		]
-    	}
-	};
-
-	$("#searchForm").form(validationRules, { 
-    	on: 'submit' 
-  	});*/
-    //$('.checkbox').checkbox('attach events', '.check.button', 'check');
-    //$('.checkbox').checkbox('attach events', '.uncheck.button', 'uncheck');
-    $(".ui.checkbox").checkbox();
 
 	$("#searchButton").click(function() {
-		$("#searchForm").submit();
+      $("#searchForm").submit(); 
 	});
 
   	$("#searchForm").submit(function(e) {
@@ -32,6 +14,7 @@ $(document).ready(function() {
   			url : url,
   			dataType : "jsonp",
   			success : function(data) {
+          $("#information").empty();
   				$("#information").empty();
   				$("#no-results").slideUp("fast");
 
@@ -40,11 +23,16 @@ $(document).ready(function() {
   					$("#information").slideUp("fast");
   					return;
   				}
-
   				$("#information").slideDown("fast");
           		var deals = data.deals;
 
           		deals.forEach(function (deal) {
+
+        			var finePrint;
+
+        			if (deal.deal.fine_print != null) {
+        				finePrint = deal.deal.fine_print.replace("/•/g", ". ");
+        			}
             		console.log(deal);
 
             		$("#information").append("<div class='title'> \
