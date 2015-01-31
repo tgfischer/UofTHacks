@@ -4,6 +4,20 @@ $(document).ready(function() {
       $("#searchForm").submit(); 
 	});
 
+	$('#searchItem').keydown(function(event) {
+        if (event.keyCode == 13) {
+            $("#searchForm").submit(); 
+            return false;
+         }
+    });
+
+    $('#searchCity').keydown(function(event) {
+        if (event.keyCode == 13) {
+            $("#searchForm").submit(); 
+            return false;
+         }
+    });
+
   	$("#searchForm").submit(function(e) {
   		// Fix sql injection threat;
   		var url = "https://api.sqoot.com/v2/deals?api_key=6vc2ns&query=" + $('#searchItem').val() + "&location=" + capitaliseFirstLetter($('#searchCity').val().toLowerCase());
@@ -16,23 +30,19 @@ $(document).ready(function() {
   			success : function(data) {
           $("#information").empty();
   				$("#information").empty();
+  				$("#information").slideUp("fast");
   				$("#no-results").slideUp("fast");
 
   				if (data.deals.length == 0) {
   					$("#no-results").slideDown("fast");
-  					$("#information").slideUp("fast");
+  					$(".hide").slideUp("fast");
   					return;
   				}
-  				$("#information").slideDown("fast");
+
+  				$(".hide").slideDown("fast");
           		var deals = data.deals;
 
           		deals.forEach(function (deal) {
-
-        			var finePrint;
-
-        			if (deal.deal.fine_print != null) {
-        				finePrint = deal.deal.fine_print.replace("/•/g", ". ");
-        			}
             		console.log(deal);
 
             		$("#information").append("<div class='title'> \
@@ -62,15 +72,16 @@ $(document).ready(function() {
 												 						<td class='collapsing'>Address</td> \
 												 						<td> \
 												 							<addr>" + 
+												 								(deal.deal.merchant.address == null ? "None Provided" : 
 												 								deal.deal.merchant.address + "<br>" + 
 												 								deal.deal.merchant.locality + " " + deal.deal.merchant.region + ", " + deal.deal.merchant.country_code + "<br>" +
-												 								deal.deal.merchant.postal_code + " \
+												 								deal.deal.merchant.postal_code) + " \
 												 							</addr> \
 												 						</td> \
 												 					</tr> \
 												 					<tr> \
 												 						<td class='collapsing'>Phone</td> \
-												 						<td>" + deal.deal.merchant.phone_number + "</td>\
+												 						<td>" + (deal.deal.merchant.phone_number == null ? "None Provided" : deal.deal.merchant.phone_number) + "</td> \
 												 					</tr> \
 												 				</tbody> \
 												 			</table> \
