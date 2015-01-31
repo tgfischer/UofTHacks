@@ -62,7 +62,6 @@ $(document).ready(function() {
 
         deals.forEach(function (deal) {
           //console.log(deal);
-
           $("#information").append("<div class='title'> \
                           <i class='dropdown icon'></i>" + 
                           deal.deal.title + 
@@ -157,14 +156,18 @@ $(document).ready(function() {
   }
 
   $("#next-page").click(function() {
-    if (currentPage == 1) {
+    $(this).removeClass("disabled");
+    if (currentPage == totalPages) {
+      $(this).addClass("disabled");
       return
     }
     goNext();
   });
 
   $("#prev-page").click(function() {
+    $(this).removeClass("disabled");
     if (currentPage == 1) {
+      $(this).addClass("disabled");
       return
     }
     goBack();
