@@ -25,6 +25,11 @@ $(document).ready(function() {
 		}
 	});
 
+	/*$('#searchMin').focusOut(function() {
+		if ($("#searchMin).val() < 0)
+			$("#searchMin.)
+	});*/
+
 	$("#searchForm").submit(function(e) {
 		var city = capitaliseFirstLetter($('#searchCity').val().toLowerCase());
 		var url = "https://api.sqoot.com/v2/deals?api_key=6vc2ns&query=" + $('#searchItem').val() + "&location=" + city;

@@ -1,9 +1,6 @@
-input {
-	width: 500px !important;
-}
-
 .form-container {
 	padding: 15px 15px 0 15px;
+	width: 500px !important;
 }
 
 #information {

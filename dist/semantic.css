@@ -3451,7 +3451,7 @@ a:hover {
 
 /* Inside grid */
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 499px) {
   .ui.stackable.grid .ui.vertical.divider,
   .ui.grid .stackable.row .ui.vertical.divider {
     position: relative;
@@ -3947,7 +3947,7 @@ i.flag.spain:before {
 
 i.flag.et:before,
 i.flag.ethiopia:before {
-  background-position: 0px -1768px;
+  background-position: 0px -1500px;
 }
 
 i.flag.eu:before,
@@ -4709,7 +4709,7 @@ i.flag.turkey:before {
 
 i.flag.tt:before,
 i.flag.trinidad:before {
-  background-position: -72px -1768px;
+  background-position: -72px -1500px;
 }
 
 i.flag.tv:before,
@@ -12506,7 +12506,7 @@ ol.ui.horizontal.list li:before,
 
 /* Mobile (Default) */
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 499px) {
   .ui.steps {
     overflow: visible;
   }
@@ -13659,7 +13659,7 @@ ol.ui.horizontal.list li:before,
 
 /* Swap to full width on mobile */
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 499px) {
   .ui.form .two.fields > .fields,
   .ui.form .two.fields > .field,
   .ui.form .three.fields > .fields,
@@ -13775,7 +13775,7 @@ ol.ui.horizontal.list li:before,
 
 /* Swap to full width on mobile */
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 499px) {
   .ui.form .two.fields > .fields,
   .ui.form .two.fields > .field,
   .ui.form .three.fields > .fields,
@@ -14055,7 +14055,7 @@ ol.ui.horizontal.list li:before,
   margin-bottom: 0em;
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 499px) {
   .ui.page.grid {
     width: auto;
     padding-left: 0em;
@@ -14065,7 +14065,7 @@ ol.ui.horizontal.list li:before,
   }
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 500px) {
   .ui.page.grid {
     width: auto;
     margin-left: 0em;
@@ -14388,7 +14388,7 @@ ol.ui.horizontal.list li:before,
 
 /* Mobile Sizing Combinations */
 
-@media only screen and (min-width: 320px) and (max-width: 767px) {
+@media only screen and (min-width: 320px) and (max-width: 499px) {
   .ui.grid > .row > [class*="one wide mobile"].column,
   .ui.grid > .column.row > [class*="one wide mobile"].column,
   .ui.grid > [class*="one wide mobile"].column,
@@ -14504,7 +14504,7 @@ ol.ui.horizontal.list li:before,
 
 /* Tablet Sizing Combinations */
 
-@media only screen and (min-width: 768px) and (max-width: 991px) {
+@media only screen and (min-width: 500px) and (max-width: 991px) {
   .ui.grid > .row > [class*="one wide tablet"].column,
   .ui.grid > .column.row > [class*="one wide tablet"].column,
   .ui.grid > [class*="one wide tablet"].column,
@@ -15497,7 +15497,7 @@ ol.ui.horizontal.list li:before,
 
 /* Tablet Only */
 
-@media only screen and (min-width: 768px) and (max-width: 991px) {
+@media only screen and (min-width: 500px) and (max-width: 991px) {
   .ui.doubling.grid {
     width: 100% !important;
   }
@@ -15591,7 +15591,7 @@ ol.ui.horizontal.list li:before,
 
 /* Mobily Only */
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 499px) {
   .ui.doubling.grid {
     width: 100% !important;
   }
@@ -15688,7 +15688,7 @@ ol.ui.horizontal.list li:before,
       Stackable
 --------------------*/
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 499px) {
   .ui.stackable.grid {
     display: block !important;
     width: auto;
@@ -15761,7 +15761,7 @@ ol.ui.horizontal.list li:before,
 
 /* Mobile Only Hide */
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 499px) {
   .ui.tablet:not(.mobile).only.grid.grid.grid,
   .ui.grid.grid.grid > [class*="tablet only"].row:not(.mobile),
   .ui.grid.grid.grid > [class*="tablet only"].column:not(.mobile),
@@ -15779,7 +15779,7 @@ ol.ui.horizontal.list li:before,
 
 /* Tablet Only Hide */
 
-@media only screen and (min-width: 768px) and (max-width: 991px) {
+@media only screen and (min-width: 500px) and (max-width: 991px) {
   .ui[class*="mobile only"].grid.grid.grid:not(.tablet),
   .ui.grid.grid.grid > [class*="mobile only"].row:not(.tablet),
   .ui.grid.grid.grid > [class*="mobile only"].column:not(.tablet),
@@ -18238,7 +18238,7 @@ ol.ui.horizontal.list li:before,
 
 /* Responsive */
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 499px) {
   .ui.table:not(.unstackable),
   .ui.table:not(.unstackable) tbody,
   .ui.table:not(.unstackable) tr,
@@ -19454,7 +19454,7 @@ ol.ui.horizontal.list li:before,
   display: none;
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 499px) {
   .ui.mobile.ad {
     display: block;
   }
@@ -20082,7 +20082,7 @@ a.ui.card:hover,
 
 /* Mobily Only */
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 499px) {
   .ui.two.doubling.cards {
     margin-left: 0em;
     margin-right: 0em;
@@ -20193,7 +20193,7 @@ a.ui.card:hover,
 
 /* Tablet Only */
 
-@media only screen and (min-width: 768px) and (max-width: 991px) {
+@media only screen and (min-width: 500px) and (max-width: 991px) {
   .ui.two.doubling.cards {
     margin-left: 0em;
     margin-right: 0em;
@@ -20306,7 +20306,7 @@ a.ui.card:hover,
       Stackable
 --------------------*/
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 499px) {
   .ui.stackable.cards {
     display: block !important;
   }
@@ -21265,7 +21265,7 @@ a.ui.card:hover,
 
 /* Tablet Only */
 
-@media only screen and (min-width: 768px) and (max-width: 991px) {
+@media only screen and (min-width: 500px) and (max-width: 991px) {
   .ui.items > .item {
     margin: 1em 0em;
   }
@@ -21282,7 +21282,7 @@ a.ui.card:hover,
 
 /* Mobily Only */
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 499px) {
   .ui.items > .item {
     margin: 2em 0em;
   }
@@ -23217,13 +23217,13 @@ select.ui.dropdown {
   display: none;
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 499px) {
   .ui.selection.dropdown .menu {
     max-height: 7.7142rem;
   }
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 500px) {
   .ui.selection.dropdown .menu {
     max-height: 10.2856rem;
   }
@@ -23352,13 +23352,13 @@ select.ui.dropdown {
   -webkit-overflow-scrolling: touch;
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 499px) {
   .ui.search.dropdown .menu {
     max-height: 7.7142rem;
   }
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 500px) {
   .ui.search.dropdown .menu {
     max-height: 10.2856rem;
   }
@@ -24055,14 +24055,14 @@ select.ui.dropdown {
 
 /* Modal Width */
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 499px) {
   .ui.modal {
     width: 95%;
     margin: 0em 0em 0em -47.5%;
   }
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 500px) {
   .ui.modal {
     width: 88%;
     margin: 0em 0em 0em -44%;
@@ -24106,7 +24106,7 @@ select.ui.dropdown {
 
 /* Mobile */
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 499px) {
   .ui.modal > .header {
     padding: 0.75rem 1rem !important;
     padding-right: 2.25rem !important;
@@ -24274,14 +24274,14 @@ select.ui.dropdown {
 
 /* Small Modal Width */
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 499px) {
   .ui.small.modal {
     width: 95%;
     margin: 0em 0em 0em -47.5%;
   }
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 500px) {
   .ui.small.modal {
     width: 52.8%;
     margin: 0em 0em 0em -26.4%;
@@ -24315,14 +24315,14 @@ select.ui.dropdown {
   font-size: 1.6em;
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 499px) {
   .ui.large.modal {
     width: 95%;
     margin: 0em 0em 0em -47.5%;
   }
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 500px) {
   .ui.large.modal {
     width: 88%;
     margin: 0em 0em 0em -44%;
@@ -26961,7 +26961,7 @@ html.ios {
 
 /* Responsive */
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 499px) {
   .ui.table:not(.unstackable),
   .ui.table:not(.unstackable) tbody,
   .ui.table:not(.unstackable) tr,
@@ -29861,7 +29861,7 @@ html.ios {
 
 /* Swap to full width on mobile */
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 499px) {
   .ui.form .two.fields > .fields,
   .ui.form .two.fields > .field,
   .ui.form .three.fields > .fields,
@@ -29977,7 +29977,7 @@ html.ios {
 
 /* Swap to full width on mobile */
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 499px) {
   .ui.form .two.fields > .fields,
   .ui.form .two.fields > .field,
   .ui.form .three.fields > .fields,
