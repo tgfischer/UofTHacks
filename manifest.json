@@ -1,10 +1,10 @@
 {
   "manifest_version": 2,
-  "name": "QuickWiki",
-  "description": "This extension allows users to quicking search things on Wikipedia!",
-  "version": "1.0",
+  "name": "DealFinder",
+  "description": "This extension allows users to quickly search for deals in their area!",
+  "version": "2.0",
   "browser_action": {
-    "default_icon": "images/icon.png",
+    "default_icon": "images/icon2.png",
     "default_popup": "popup.html"
   },
   "content_security_policy": "script-src 'self' https://api.sqoot.com; object-src 'self'"

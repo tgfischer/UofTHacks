@@ -26,7 +26,6 @@ $(document).ready(function() {
 	});
 
 	$("#searchForm").submit(function(e) {
-		// Fix sql injection threat;
 		var city = capitaliseFirstLetter($('#searchCity').val().toLowerCase());
 		var url = "https://api.sqoot.com/v2/deals?api_key=6vc2ns&query=" + $('#searchItem').val() + "&location=" + city;
 		currentPage = 1;
@@ -38,6 +37,8 @@ $(document).ready(function() {
 
 	function pageLoad (url, city, currentPage) {
 		$("#spinner").show();
+		scrollToAnchor("anchor");
+
 		$.ajax({
 			type : "GET",
 			url : url,
@@ -45,7 +46,7 @@ $(document).ready(function() {
 			success : function(data) {
 				$("#spinner").hide();
 				$("#information").empty();
-				$("#information").slideUp("fast");
+				//$("#information").slideUp("fast");
 				$("#no-results").slideUp("fast");
 
 				if (data.deals.length == 0 || (city && !data.query.location.locality)) {
@@ -63,7 +64,7 @@ $(document).ready(function() {
 				$("#page-number").empty();
 				$("#page-number").append(currentPage + " / " + totalPages);
 				$("#search-results").empty();
-				$("#search-results").append("Total Results - "+info.total);
+				$("#search-results").append("Total Results - "+ info.total);
 
 				if (currentPage == totalPages) {
 					$("#next-page").addClass("disabled");
@@ -199,5 +200,10 @@ $(document).ready(function() {
 		var url = "https://api.sqoot.com/v2/deals?api_key=6vc2ns&query=" + $('#searchItem').val() + "&location=" + city + "&page=" + currentPage;
 
 		pageLoad(url, city, currentPage);
+	}
+
+	function scrollToAnchor(anchor) {
+    	var tag = $("a[name='" + anchor + "']");
+    	$('html, body').animate({ scrollTop : tag.offset().top }, "fast");
 	}
 });
