@@ -130,7 +130,7 @@ $(document).ready(function() {
           											</div>") +
           											"<div class='row'> \
           												<div class='column'> \
-          													<div id='" + deal.deal.url + "' class='ui fluid teal button'>" + 
+          													<div id='" + deal.deal.id + "' class='ui fluid teal button'>" + 
           														deal.deal.provider_name + " \
           													</div> \
           												</div> \
@@ -138,12 +138,11 @@ $(document).ready(function() {
           										</div> \
           									</div>");
 
-					var link = document.getElementById(deal.deal.url);
-
-					link.addEventListener('click', function() {
-						newTab(deal.deal.url);
+					$("#"+deal.deal.id).click(function() {
+            newTab(deal.deal.url);
 					});
-				});
+          
+				}); //end of loop
 
 				$('html').css({ height : "auto" });
 	      	} //end of success
