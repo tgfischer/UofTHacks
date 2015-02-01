@@ -158,7 +158,7 @@ $(document).ready(function() {
 			return;
 		}
 
-		goNext();
+		go(1);
 	});
 
 	$("#prev-page").click(function() {
@@ -169,7 +169,7 @@ $(document).ready(function() {
 			return;
 		}
 
-		goBack();
+		go(-1);
 	});
 
 	$('.ui.accordion').accordion();
@@ -186,16 +186,8 @@ $(document).ready(function() {
 		return string.charAt(0).toUpperCase() + string.slice(1);
 	}
 
-	function goNext() {
-		currentPage = currentPage + 1
-		var city = capitaliseFirstLetter($('#searchCity').val().toLowerCase());
-		var url = "https://api.sqoot.com/v2/deals?api_key=6vc2ns&query=" + $('#searchItem').val() + "&location=" + city + "&page=" + currentPage;
-
-		pageLoad(url, city, currentPage);
-	}
-
-	function goBack() {   
-		currentPage = currentPage - 1
+	function go(n) {
+		currentPage = currentPage + n
 		var city = capitaliseFirstLetter($('#searchCity').val().toLowerCase());
 		var url = "https://api.sqoot.com/v2/deals?api_key=6vc2ns&query=" + $('#searchItem').val() + "&location=" + city + "&page=" + currentPage;
 
