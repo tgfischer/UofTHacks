@@ -5,7 +5,11 @@ $(document).ready(function() {
 	$(".hide").hide();
 
 	$("#searchButton").click(function() {
-      $("#searchForm").submit(); 
+    $("#information").hide();
+    $("#search-results").hide();
+    $(".pagination.menu").hide();
+    $("#spinner").show();
+    $("#searchForm").submit(); 
 	});
 
 	$('#searchItem').keydown(function(event) {
@@ -39,6 +43,7 @@ $(document).ready(function() {
       url : url,
       dataType : "jsonp",
       success : function(data) {
+        $("#spinner").hide();
         $("#information").empty();
         $("#information").slideUp("fast");
         $("#no-results").slideUp("fast");
