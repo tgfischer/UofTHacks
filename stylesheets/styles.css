@@ -40,3 +40,7 @@ div#spinner {
 ::-moz-selection {
   background: #ffb7b7; /* Gecko Browsers */
 }
+
+#searchForm {
+	margin-bottom: 15px;
+}
