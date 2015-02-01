@@ -25,18 +25,6 @@ $(document).ready(function() {
 		}
 	});
 
-	$('#searchMinDiscount').focusout(function() {
-		if ($("#searchMinDiscount").val() < 0) {
-			$("#searchMinDiscount").val(0);
-		}
-	});
-
-	$('#searchMaxPrice').focusout(function() {
-		if ($("#searchMaxPrice").val() < 0) {
-			$("#searchMaxPrice").val(0);
-		}
-	});
-
 	$("#searchForm").submit(function(e) {
 		var city = capitaliseFirstLetter($('#searchCity').val().toLowerCase());
 		var url = "https://api.sqoot.com/v2/deals?api_key=6vc2ns&query=" + $('#searchItem').val() + "&location=" + city;
