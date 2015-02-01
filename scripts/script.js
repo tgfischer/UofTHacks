@@ -25,10 +25,17 @@ $(document).ready(function() {
 		}
 	});
 
-	/*$('#searchMin').focusOut(function() {
-		if ($("#searchMin).val() < 0)
-			$("#searchMin.)
-	});*/
+	$('#searchMinDiscount').focusout(function() {
+		if ($("#searchMinDiscount").val() < 0) {
+			$("#searchMinDiscount").val(0);
+		}
+	});
+
+	$('#searchMaxPrice').focusout(function() {
+		if ($("#searchMaxPrice").val() < 0) {
+			$("#searchMaxPrice").val(0);
+		}
+	});
 
 	$("#searchForm").submit(function(e) {
 		var city = capitaliseFirstLetter($('#searchCity').val().toLowerCase());
