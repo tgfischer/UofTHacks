@@ -44,27 +44,29 @@ $(document).ready(function() {
 			url : url,
 			dataType : "jsonp",
 			success : function(data) {
+        var deals = data.deals;
+        var query = data.query;
+
+        totalPages = Math.ceil(Number(query.total) / 10);
+
 				$("#spinner").hide();
 				$("#information").empty();
 				//$("#information").slideUp("fast");
 				$("#no-results").slideUp("fast");
 
-				if (data.deals.length == 0 || (city && !data.query.location.locality)) {
+				if (deals.length == 0 || (city && !query.location.locality)) {
 					$("#no-results").slideDown("fast");
 					$(".hide").slideUp("fast");
 					return;
 				}
 
 				$(".hide").slideDown("fast");
-				var deals = data.deals;
-				var info = data.query;
-
-				totalPages = Math.ceil(Number(info.total) / 10);
 
 				$("#page-number").empty();
 				$("#page-number").append(currentPage + " / " + totalPages);
+
 				$("#search-results").empty();
-				$("#search-results").append("Total Results - "+ info.total);
+				$("#search-results").append("Deals: "+ query.total + " results found");
 
 				if (currentPage == totalPages) {
 					$("#next-page").addClass("disabled");
